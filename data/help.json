@@ -1,0 +1,228 @@
+{
+  "topics": {
+    "ping": {
+      "short_description": "Check the bot's latency and responsiveness",
+      "description": "Check the bot's current latency (response time) to Discord. This command helps you verify that the bot is responsive and shows the network delay in milliseconds. Useful for diagnosing connection or performance issues.",
+      "usage": "/ping",
+      "examples": [
+        "/ping"
+      ],
+      "notes": [
+        "Shows latency in milliseconds (ms)",
+        "Lower latency means faster bot response",
+        "Useful for checking if the bot is responsive",
+        "No parameters required"
+      ]
+    },
+    "play": {
+      "short_description": "Play a song or playlist from Spotify/YouTube with search or URL",
+      "description": "Search for and play music by providing a song title, artist name, URL, or playlist link. The bot will automatically join your voice channel and start playing. Supports YouTube links, Spotify links, and search queries. Uses autocomplete to suggest songs as you type.",
+      "usage": "/play <song name or URL>",
+      "examples": [
+        "/play bohemian rhapsody",
+        "/play https://open.spotify.com/track/1w2jXAbkl42qoME6vlx4dO",
+        "/play https://www.youtube.com/watch?v=fJ9rUzIMt7o",
+        "/play the weeknd blinding lights"
+      ],
+      "notes": [
+        "You must be in a voice channel to use this command",
+        "The bot will automatically join your voice channel when you play a song",
+        "Supports Spotify links, YouTube links, and search queries",
+        "Autocomplete will suggest songs as you type (requires 2+ characters)",
+        "If you add a playlist, it will be queued and the first song will play",
+        "Maximum queue size limit applies - songs beyond the limit will be skipped"
+      ]
+    },
+    "playlist create": {
+      "short_description": "Create a new playlist to save your favorite songs",
+      "description": "Create a new playlist where you can save and organize your favorite songs. You can optionally add a description to your playlist. Playlist names are limited to 30 characters. Once created, you can add songs to it and view them anytime.",
+      "usage": "/playlist create <name> [description]",
+      "examples": [
+        "/playlist create Workout Music",
+        "/playlist create Chill Vibes Best relaxing songs for studying",
+        "/playlist create My Favorites",
+        "/playlist create Road Trip Songs"
+      ],
+      "notes": [
+        "Playlist name must be 30 characters or less",
+        "Description is optional",
+        "Playlist is private to your account",
+        "You can create multiple playlists",
+        "Use /playlist show to see all your playlists",
+        "Each playlist gets a unique 16-character ID"
+      ]
+    },
+    "playlist show": {
+      "short_description": "View all your playlists with song counts",
+      "description": "Display a list of all your created playlists with song counts. Shows your playlist names, descriptions (if any), when they were created, and how many songs each contains. The list is paginated for easy browsing.",
+      "usage": "/playlist show",
+      "examples": [
+        "/playlist show"
+      ],
+      "notes": [
+        "Shows all playlists you have created",
+        "Displays song count for each playlist",
+        "Shows creation date for each playlist",
+        "Results are paginated (10 playlists per page)",
+        "Shows playlist descriptions if available",
+        "Use /playlist view <name> to see the songs in a playlist"
+      ]
+    },
+    "playlist view": {
+      "short_description": "View all songs in a specific playlist with add buttons",
+      "description": "Display all songs in a specific playlist with song titles, artists, and cover artwork. Each song has an 'Add' button that allows you to queue it to the current playback. Songs are displayed in pages of 5 for easy browsing. Perfect for reviewing your saved songs before playing them.",
+      "usage": "/playlist view <playlist_name>",
+      "examples": [
+        "/playlist view Workout Music",
+        "/playlist view Chill Vibes",
+        "/playlist view My Favorites"
+      ],
+      "notes": [
+        "You must specify an existing playlist name",
+        "Uses autocomplete to help you find playlist names",
+        "Displays songs in pages of 5",
+        "Each song has an 'Add' button to queue it",
+        "Shows song title, artist, and artwork",
+        "Must be in a voice channel to use the 'Add' buttons",
+        "Songs are displayed in order they were added"
+      ]
+    },
+    "playlist add": {
+      "short_description": "Add a song or playlist to one of your playlists",
+      "description": "Search for and add songs to your playlists. You can add individual songs or entire playlists. The command uses autocomplete to suggest songs/playlists as you type. You'll be shown a dropdown to select which playlist to add the song(s) to. Supports URLs and search queries.",
+      "usage": "/playlist add <song_name_or_URL>",
+      "examples": [
+        "/playlist add bohemian rhapsody",
+        "/playlist add https://open.spotify.com/track/1w2jXAbkl42qoME6vlx4dO",
+        "/playlist add https://www.youtube.com/watch?v=fJ9rUzIMt7o",
+        "/playlist add the weeknd blinding lights"
+      ],
+      "notes": [
+        "Song name or URL is required",
+        "Autocomplete suggests songs as you type",
+        "Can add individual songs or entire playlists",
+        "You'll select the target playlist from a dropdown",
+        "Maximum 250 songs per playlist",
+        "Supports Spotify links, YouTube links, and search queries",
+        "Batch processing adds up to 100 songs at once for playlists",
+        "Shows success/error messages after adding"
+      ]
+    },
+    "playlist delete": {
+      "short_description": "Delete one of your playlists",
+      "description": "Permanently delete a playlist and all its songs. Once deleted, the playlist cannot be recovered. Use this when you want to remove a playlist you no longer need. Uses autocomplete to help you select the correct playlist.",
+      "usage": "/playlist delete <playlist_name>",
+      "examples": [
+        "/playlist delete Old Playlist",
+        "/playlist delete Workout Music",
+        "/playlist delete Temp Playlist"
+      ],
+      "notes": [
+        "Deletion is permanent - cannot be undone",
+        "All songs in the playlist will be deleted",
+        "Uses autocomplete to find playlist names",
+        "Only you can delete your own playlists",
+        "Confirm the playlist name before deleting",
+        "Shows confirmation when deleted successfully"
+      ]
+    },
+    "playlist manage": {
+      "short_description": "Manage songs in a playlist - remove specific tracks",
+      "description": "View and manage the songs in a specific playlist. This command displays all songs with individual 'Delete' buttons so you can remove specific tracks from your playlist. Perfect for cleaning up your playlists or removing songs you no longer want. Songs are displayed in pages of 5.",
+      "usage": "/playlist manage <playlist_name>",
+      "examples": [
+        "/playlist manage Workout Music",
+        "/playlist manage Chill Vibes",
+        "/playlist manage My Favorites"
+      ],
+      "notes": [
+        "You must specify an existing playlist name",
+        "Uses autocomplete to help you find playlist names",
+        "Displays songs in pages of 5",
+        "Each song has a 'Delete' button to remove it",
+        "Shows song title, artist, and artwork",
+        "Only you can manage your own playlists",
+        "Songs are displayed in order they were added",
+        "Deleted songs are removed immediately from the playlist"
+      ]
+    },
+    "connect": {
+      "short_description": "Manually connect the bot to your voice channel",
+      "description": "Manually connect the bot to the voice channel you are currently in. Usually the bot connects automatically when you use /play, but you can use this command to reconnect manually if needed. The bot will join your channel and wait for commands.",
+      "usage": "/connect",
+      "examples": [
+        "/connect"
+      ],
+      "notes": [
+        "You must be in a voice channel to use this command",
+        "The bot automatically connects when you use /play",
+        "If the bot is already in your voice channel, it will show a confirmation",
+        "Useful for reconnecting if the bot accidentally leaves or if you join a different channel",
+        "The bot will remain in the voice channel until /disconnect or /stop is used"
+      ]
+    },
+    "disconnect": {
+      "short_description": "Disconnect the bot and stop all playback",
+      "description": "Stop the currently playing song and disconnect the bot from the voice channel completely. This will clear the queue and remove the bot from the channel entirely. Unlike /stop, this command fully disconnects the bot.",
+      "usage": "/disconnect",
+      "examples": [
+        "/disconnect"
+      ],
+      "notes": [
+        "This will stop the music and disconnect the bot completely",
+        "The queue will be cleared when disconnecting",
+        "Use /stop if you want to stop music but keep the bot in the voice channel",
+        "Use /connect to reconnect the bot after using this command",
+        "All playback information will be reset"
+      ]
+    },
+    "stop": {
+      "short_description": "Stop playback and clear the queue but stay connected",
+      "description": "Stop the currently playing song and clear the entire queue. The bot will remain in the voice channel and continue to stay connected. This is useful if you want to pause and clear everything but keep the bot ready for new commands.",
+      "usage": "/stop",
+      "examples": [
+        "/stop"
+      ],
+      "notes": [
+        "This will stop the music and clear the queue",
+        "The bot remains connected to the voice channel",
+        "Use /disconnect to fully disconnect the bot from voice",
+        "Use /play to start playing music again after stopping",
+        "The bot's volume and settings will be preserved"
+      ]
+    },
+    "queue": {
+      "short_description": "Display all songs in the current queue",
+      "description": "Show all songs currently queued up, displayed in order. The currently playing song will be shown at the top. The queue is paginated, so you can view multiple pages if there are many songs. Displays essential info like song title, artist, and duration for each track.",
+      "usage": "/queue",
+      "examples": [
+        "/queue"
+      ],
+      "notes": [
+        "You must be in the same voice channel as the bot to use this command",
+        "The bot must be playing music or have songs in the queue",
+        "Displays the currently playing song at the top",
+        "Queue is displayed with song titles, artists, and duration",
+        "Useful for checking what's coming up next",
+        "Shows pagination info if queue is very long"
+      ]
+    },
+    "reset": {
+      "short_description": "Reset the player and return to the original voice channel",
+      "description": "Reset the bot's player state completely, clear the queue, and return the bot to the original voice channel it connected to. Useful if you encounter connection issues, the bot gets stuck, or you want to completely refresh the player state. This is a full reset that clears all playback data.",
+      "usage": "/reset",
+      "examples": [
+        "/reset"
+      ],
+      "notes": [
+        "This will clear the queue and stop all playback",
+        "The bot returns to the original voice channel it joined",
+        "Player container is completely reset to initial state",
+        "Use this if you experience connection issues or the bot gets stuck",
+        "All playback settings and queue will be cleared",
+        "After reset, you can start playing music again with /play"
+      ]
+    }
+  }
+}
+

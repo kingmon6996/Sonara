@@ -1,0 +1,12 @@
+test
+output.png
+__pycache__/
+cloner.py
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+*.py[cod]
+.vscode/
+data/log.json
